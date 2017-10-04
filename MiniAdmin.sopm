@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <!-- GENERATED WITH OTRS::OPM::Maker::Command::sopm (1.37) -->
+    <Name>MiniAdmin</Name>
+    <Version>5.0.1</Version>
+    <Framework>5.0.x</Framework>
+    <Vendor>Perl-Services.de</Vendor>
+    <URL>http://www.perl-services.de</URL>
+    <Description Lang="de">Ein Modul, um das Delegieren von Administrationsaufgaben zu vereinfachen</Description>
+    <Description Lang="en">A module to delegate admin tasks more easily</Description>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Filelist>
+        <File Permission="644" Location="Kernel/Config/Files/MiniAdmin.xml" />
+        <File Permission="644" Location="Kernel/Modules/AdminMiniAdmin.pm" />
+        <File Permission="644" Location="Kernel/Output/HTML/Templates/Standard/AdminMiniAdmin.tt" />
+        <File Permission="644" Location="doc/MiniAdmin.json" />
+    </Filelist>
+    <DatabaseInstall Type="post">
+        <Insert Table="groups">
+            <Data Key="name" Type="Quote"><![CDATA[otrsminiadmin]]></Data>
+            <Data Key="valid_id">1</Data>
+            <Data Key="comments" Type="Quote"><![CDATA[mini admin group]]></Data>
+            <Data Key="create_time">current_timestamp</Data>
+            <Data Key="create_by">1</Data>
+            <Data Key="change_time">current_timestamp</Data>
+            <Data Key="change_by">1</Data>
+        </Insert>
+    </DatabaseInstall>
+</otrs_package>
