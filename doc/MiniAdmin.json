@@ -1,8 +1,8 @@
 {
     "name": "MiniAdmin",
-    "version": "5.0.1",
+    "version": "6.0.1",
     "framework": [
-        "5.0.x"
+        "6.0.x"
     ],
     "vendor": {
         "name":  "Perl-Services.de",
@@ -13,20 +13,7 @@
         "en": "A module to delegate admin tasks more easily",
         "de": "Ein Modul, um das Delegieren von Administrationsaufgaben zu vereinfachen"
     },
-    "database" : [
-        {
-            "type": "Insert",
-            "name": "groups",
-            "version": 0, 
-            "columns": [
-                { "name": "name", "type": "Quote", "value": "otrsminiadmin" },
-                { "name": "valid_id", "value": "1" },
-                { "name": "comments", "value": "mini admin group", "type": "Quote" },
-                { "name": "create_time", "value": "current_timestamp" },
-                { "name": "create_by", "value": "1" },
-                { "name": "change_time", "value": "current_timestamp" },
-                { "name": "change_by", "value": "1" }
-            ]
-        }
+    "exclude_files" : [
+        "doc/MiniAdmin.json"
     ]
 }

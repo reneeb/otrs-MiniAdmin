@@ -6,8 +6,23 @@
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 
+<script type="text/javascript">//<![CDATA[
+    var MiniAdmins = [% Data.MiniAdmins %];
+//]]></script>
+
 <div class="MainBox ARIARoleMain LayoutFixedSidebar SidebarFirst">
     <h1>[% Translate("Miniadmin Actions") | html %]</h1>
+
+    <div class="SidebarColumn">
+        <div class="WidgetSimple">
+            <div class="Header">
+                <h2>[% Translate("Add Group") | html %]</h2>
+            </div>
+            <div class="Content">
+                [% Data.GroupsSelect %]
+            </div>
+        </div>
+    </div>
 
     <div class="ContentColumn">
         <div class="WidgetSimple">
@@ -20,14 +35,17 @@
                     <input type="hidden" name="Action" value="[% Env("Action") %]"/>
                     <input type="hidden" name="Subaction" value="Save"/>
 
-                    <fieldset class="TableLike FixedLabelSmall">
-
-                        <label for="FrontendModules"><span class="Marker">*</span> [% Translate("Actions") | html %]:</label>
-                        <div class="Field">
-                            [% Data.FrontendModules %]
-                        </div>
-                        <div class="Clear"></div>
-
+                    <fieldset class="TableLike FixedLabelSmall" id="MiniAdminFieldset">
+                        <table class="DataTable" style="width: 800px">
+                            <thead>
+                                <tr>
+                                    <td>[% Translate("Group") %]</td>
+                                    <td style="width: 600px">[% Translate("Actions") %]</td>
+                                </tr>
+                            </thead>
+                            <tbody id="MiniAdminList">
+                            </tbody>
+                        </table>
                         <div class="Field SpacingTop">
                             <button class="Primary CallForAction" type="submit" id="Run" value="[% Translate("Submit") | html %]"><span>[% Translate("Submit") | html %]</span></button>
                         </div>
@@ -38,4 +56,13 @@
 
     </div>
     <div class="Clear"></div>
+
+    <div class="Hidden" id="">
+        <table>
+        <tr id="MiniAdminTemplate">
+            <td>#GroupName</td>
+            <td>[% Data.FrontendModules %]</td>
+        </tr>
+        </table>
+   </div>
 </div>
